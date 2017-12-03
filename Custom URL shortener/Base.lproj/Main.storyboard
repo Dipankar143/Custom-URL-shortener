@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WUH-LU-Ivm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Custom_URL_shortener" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,142 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="q66-VD-jyi">
+                                <rect key="frame" x="0.0" y="64" width="375" height="583"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E" translatesAutoresizingMaskIntoConstraints="NO" id="vLH-kC-KXi">
+                                        <rect key="frame" x="111.5" y="0.0" width="152" height="152"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="9gH-qg-3Wc">
+                                        <rect key="frame" x="0.0" y="214" width="375" height="230"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Long URL with http://" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wpZ-67-xCh">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="trU-ct-cPq"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Short URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o2n-gy-BK1">
+                                                <rect key="frame" x="0.0" y="100" width="375" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="nV3-aR-8c9"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="shortEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="G7v-mS-KFg"/>
+                                                    <action selector="shortTxtTapped:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="RFq-3g-1Gi"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ma5-Sd-bzo">
+                                                <rect key="frame" x="162" y="200" width="51" height="30"/>
+                                                <state key="normal" title="SHORT"/>
+                                                <connections>
+                                                    <action selector="shortClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lXB-U7-StV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="o2n-gy-BK1" firstAttribute="leading" secondItem="9gH-qg-3Wc" secondAttribute="leading" id="0tf-9v-zWQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="wpZ-67-xCh" secondAttribute="trailing" id="2kI-Y5-5qB"/>
+                                            <constraint firstItem="wpZ-67-xCh" firstAttribute="leading" secondItem="9gH-qg-3Wc" secondAttribute="leading" id="CI0-uC-Z7W"/>
+                                            <constraint firstAttribute="trailing" secondItem="o2n-gy-BK1" secondAttribute="trailing" id="IwJ-sZ-oe6"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Q-7m-WRA">
+                                        <rect key="frame" x="42.5" y="506" width="290" height="77"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Shorted Url is http://gourl.gq/xxx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dn4-s8-Ioe">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azK-ul-r8x">
+                                                <rect key="frame" x="111.5" y="47" width="67" height="30"/>
+                                                <state key="normal" title="copy URL"/>
+                                                <connections>
+                                                    <action selector="copyUrl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qol-D9-FzQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="9gH-qg-3Wc" firstAttribute="leading" secondItem="q66-VD-jyi" secondAttribute="leading" id="QGv-B8-jKY"/>
+                                    <constraint firstAttribute="trailing" secondItem="9gH-qg-3Wc" secondAttribute="trailing" id="fXj-e6-LVN"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="q66-VD-jyi" secondAttribute="trailing" id="D4M-Di-z5Q"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="q66-VD-jyi" secondAttribute="bottom" constant="20" id="Gzv-qf-R9G"/>
+                            <constraint firstItem="q66-VD-jyi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZFe-Ic-Aed"/>
+                            <constraint firstItem="q66-VD-jyi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Zb8-3G-qlT"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="maP-Qa-mbm">
+                        <barButtonItem key="rightBarButtonItem" title="Track" id="Ysy-l5-Mww">
+                            <connections>
+                                <segue destination="AM9-8w-lSG" kind="show" id="Q2n-K2-wn6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="copyBtn" destination="azK-ul-r8x" id="QKa-YR-eLi"/>
+                        <outlet property="long" destination="wpZ-67-xCh" id="RjQ-we-FSG"/>
+                        <outlet property="short" destination="o2n-gy-BK1" id="Q0a-rb-aOb"/>
+                        <outlet property="shortLable" destination="Dn4-s8-Ioe" id="fg8-Qh-Q3N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--Track-->
+        <scene sceneID="Kmu-Rs-WJs">
+            <objects>
+                <viewController id="AM9-8w-lSG" customClass="Track" customModule="Custom_URL_shortener" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6gE-nP-rrY"/>
+                        <viewControllerLayoutGuide type="bottom" id="5dI-oO-Qpp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i1Z-nj-3ZV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ckB-hw-88R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TYO-0z-QvA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WUH-LU-Ivm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Se-8g-qGI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2CX-24-HV4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="13T-Cs-8s3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="E" width="152" height="152"/>
+    </resources>
 </document>
